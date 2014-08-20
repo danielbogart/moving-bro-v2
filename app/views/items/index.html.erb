@@ -1,0 +1,20 @@
+<h1>Item Index</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @items.order("created_at DESC").each do |p| %>
+		<tr>
+			<td>
+				<%= p.item_name %>
+			</td>
+		</tr>
+	<% end %>	
+	</tbody>
+</table>
+
+
+<%= render "shared/new_item_form" %>
