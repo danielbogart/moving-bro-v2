@@ -26,7 +26,7 @@
 	<% @my_groups.order("created_at DESC").each do |p| %>
 		<tr>
 			<td>
-				<%= p.group_name %>
+				<%= link_to p.group_name, "/user_groups/"+p.group_name %>
 			</td>
 		</tr>
 	<% end %>	

@@ -6,6 +6,7 @@
 		<%= f.error_notification %>
 		<div class="form-inputs">
 		    <%= f.input :item_name, :maxlength => 15 %>
+		    <%= f.hidden_field :user_group_id, :value => current_user.user_groups.first.id %>
 		    <br>
 		    <div class="form-actions">
 		    	<%= f.button :submit, :class => "btn btn-primary" %>

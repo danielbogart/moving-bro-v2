@@ -15,4 +15,8 @@ class UserGroupsController < ApplicationController
 		params.require(:user_group).permit(:group_name)
 	end
 
+	def show
+		@group_page = params[:id]
+    	@user_group_items = Item.where(user_group_id: UserGroup.where(["group_name = ?", @group_page]).first.id)  
+    end
 end
