@@ -3,6 +3,7 @@ class UserGroupsController < ApplicationController
 	def index
 		@groups = UserGroup.all
 		@group = UserGroup.new
+		@my_groups = current_user.user_groups.all
 	end
 
 	def create
