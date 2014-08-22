@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :user_groups #added - not in original gist
+  belongs_to :user_group #added - not in original gist
   has_many :items, through: :user_groups
 end

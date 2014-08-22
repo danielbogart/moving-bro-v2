@@ -3,11 +3,11 @@ class UserGroupsController < ApplicationController
 	def index
 		@groups = UserGroup.all
 		@group = UserGroup.new
-		@my_groups = current_user.user_groups.all
+		@my_group = current_user.user_group
 	end
 
 	def create
-		@group = current_user.user_groups.create(group_params)
+		@group = current_user.user_group.create(group_params)
 		redirect_to '/user_groups', :notice => "Your group has created"
 	end
 

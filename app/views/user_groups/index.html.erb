@@ -19,17 +19,23 @@
 <table class="table table-striped">
     <thead>
       <tr>
-        <th>My User Groups</th>
+        <th>My User Group</th>
 		</tr>
 	</thead>
 	<tbody>
-	<% @my_groups.order("created_at DESC").each do |p| %>
 		<tr>
 			<td>
-				<%= link_to p.group_name, "/user_groups/"+p.group_name %>
+				<% if @my_group = nil %>
+					<%= link_to @my_group.group_name, "/user_groups/"+@my_group.group_name %>
+				<% else %>
+
+				<% end %>
 			</td>
 		</tr>
-	<% end %>	
 	</tbody>
 </table>
-<%= render "shared/new_user_group_form" %>
+
+<% if @my_group = nil %>
+	<% else %>
+	<%= render "shared/new_user_group_form" %>
+<% end %>
