@@ -7,7 +7,9 @@ class UserGroupsController < ApplicationController
 	end
 
 	def create
-		@group = current_user.user_group.create(group_params)
+		@group = current_user.create_user_group(group_params)
+		current_user.user_group = @group
+		current_user.save
 		redirect_to '/user_groups', :notice => "Your group has created"
 	end
 

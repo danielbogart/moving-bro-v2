@@ -25,10 +25,10 @@
 	<tbody>
 		<tr>
 			<td>
-				<% if @my_group = nil %>
-					<%= link_to @my_group.group_name, "/user_groups/"+@my_group.group_name %>
-				<% else %>
+				<% if @my_group.nil? %>
 
+				<% else %>
+					<%= link_to @my_group.group_name, "/user_groups/"+@my_group.group_name %>
 				<% end %>
 			</td>
 		</tr>
