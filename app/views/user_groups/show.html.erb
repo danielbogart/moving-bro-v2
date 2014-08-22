@@ -3,15 +3,24 @@
     <thead>
       <tr>
         <th>Item</th>
+        <th>Got It?</th>
 		</tr>
 	</thead>
 	<tbody>
+	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "get") do %>
 	<% @user_group_items.order("created_at DESC").each do |p| %>
 		<tr>
 			<td>
 				<%= p.item_name %>
 			</td>
+			<td>
+				<%= check_box_tag(p.id, 1, false, :class => "text-center") %>
+			</td>
 		</tr>
 	<% end %>	
 	</tbody>
 </table>
+
+<%= submit_tag("Update Group List", :class => "btn btn-primary") %>
+
+<% end %>

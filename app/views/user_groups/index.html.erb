@@ -35,7 +35,8 @@
 	</tbody>
 </table>
 
-<% if @my_group = nil %>
-	<% else %>
+<% if @my_group.nil? %>
 	<%= render "shared/new_user_group_form" %>
+	<% else %>
+
 <% end %>

@@ -19,6 +19,6 @@ class UserGroupsController < ApplicationController
 
 	def show
 		@group_page = params[:id]
-    	@user_group_items = Item.where(user_group_id: UserGroup.where(["group_name = ?", @group_page]).first.id)  
+    	@user_group_items = UserGroup.where(["group_name = ?", @group_page]).first.items
     end
 end
