@@ -28,6 +28,6 @@ class UserGroupsController < ApplicationController
     def update_user_group_items
     	#Update UGI list 
     	UserGroupItem.where(:id => params[:user_group_item_ids]).update_all(:taken => 0)
-    	redirect_to '/user_groups/', :notice => "Your items have been updated"
+    	redirect_to user_group_path(current_user.user_group.group_name), :notice => "Your items have been updated"
     end
 end
