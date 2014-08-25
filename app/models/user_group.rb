@@ -8,7 +8,7 @@ class UserGroup < ActiveRecord::Base
 
   	def create_group_items
   		Item.all.each do |item|
-  			user_group_item = self.user_group_items.build(item_id: item.id, taken: 1)
+  			user_group_item = self.user_group_items.build(item_id: item.id, taken: 1, item_name: item.item_name)
   			user_group_item.save
   		end
   	end

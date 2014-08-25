@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  post 'user_groups/:group_name' => 'user_groups#update_user_group_items'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

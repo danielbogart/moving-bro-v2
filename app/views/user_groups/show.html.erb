@@ -7,20 +7,27 @@
 		</tr>
 	</thead>
 	<tbody>
-	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "get") do %>
+	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
+	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
 	<% @user_group_items.order("created_at DESC").each do |p| %>
+		<% if p.taken > 0 %>
 		<tr>
 			<td>
-				<%= p.item_name %>
+					<%= p.item_name %>
 			</td>
 			<td>
-				<%= check_box_tag(p.id, 1, false, :class => "text-center") %>
+					<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center") %>
 			</td>
 		</tr>
+		<% else %>
+		<% end %>
 	<% end %>	
 	</tbody>
 </table>
 
 <%= submit_tag("Update Group List", :class => "btn btn-primary") %>
+
+<div class="btn btn-primary">Add To Amazon Cart</div>
+<div class="btn btn-primary">Print List</div>
 
 <% end %>

@@ -19,6 +19,15 @@ class UserGroupsController < ApplicationController
 
 	def show
 		@group_page = params[:id]
-    	@user_group_items = UserGroup.where(["group_name = ?", @group_page]).first.items
+
+    	#this line should show only UGI where taken = 1 (or more in the future)
+    	@user_group_items = UserGroup.where(["group_name = ?", @group_page]).first.user_group_items
+
+    end
+
+    def update_user_group_items
+    	#Update UGI list 
+    	UserGroupItem.where(:id => params[:user_group_item_ids]).update_all(:taken => 0)
+    	redirect_to '/user_groups/', :notice => "Your items have been updated"
     end
 end
