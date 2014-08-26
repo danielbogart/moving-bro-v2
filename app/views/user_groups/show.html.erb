@@ -1,8 +1,8 @@
 <h1>My Group's Needed Items</h1>
-  <table class="table table-striped">
+<table class="table table-striped">
     <thead>
       <tr>
-        <th>Item</th>
+        <th>Cleaning</th>
         <th>Got It?</th>
 		</tr>
 	</thead>
@@ -10,6 +10,7 @@
 	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
 	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
 	<% @user_group.not_taken_user_group_items.each do |p| %>
+		<% if p.item.category_name == "Cleaning" %>
 		<tr>
 			<td>
 				<%= p.item.item_name %>	
@@ -18,6 +19,33 @@
 				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center") %>	
 			</td>
 		</tr>
+		<% else %>
+		<% end %>
+	<% end %>	
+	</tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Furniture</th>
+        <th>Got It?</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
+	<% @user_group.not_taken_user_group_items.each do |p| %>
+		<% if p.item.category_name == "Furniture" %>
+		<tr>
+			<td>
+				<%= p.item.item_name %>	
+			</td>
+			<td>
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center") %>	
+			</td>
+		</tr>
+		<% else %>
+		<% end %>
 	<% end %>	
 	</tbody>
 </table>
