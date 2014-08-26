@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   post 'user_groups/:group_name' => 'user_groups#update_user_group_items'
 
+  get 'user_groups/:group_name/taken_items' => 'user_groups#taken_items'
+
+  post 'user_groups/:group_name/taken_items' => 'user_groups#update_taken_items'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

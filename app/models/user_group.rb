@@ -26,6 +26,10 @@ class UserGroup < ActiveRecord::Base
     self.user_group_items.where('taken > 0').order("created_at DESC")
   end
 
+  def taken_user_group_items
+    self.user_group_items.where('taken = 0').order("created_at DESC")
+  end
+
   #can start with where since class is already called
   #? is a placeholder for whatever needs to be passed in to sql
   #example of a class method, runs on the class itself

@@ -11,13 +11,14 @@
 	<!--Refactor/put in partial?-->
 	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
 	<% @user_group.not_taken_user_group_items.each do |p| %>
-		<% if p.item.category_name == "Cleaning" %>
+
+	<% if p.item.category_name == "Cleaning" %>
 		<tr>
 			<td>
 				<%= p.item.item_name %>	
 			</td>
 			<td>
-				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center cleaning") %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center cleaning") %>
 			</td>
 		</tr>
 		<% else %>
@@ -40,7 +41,8 @@ Check / Uncheck All
 	<tbody>
 	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
 	<% @user_group.not_taken_user_group_items.each do |p| %>
-		<% if p.item.category_name == "Furniture" %>
+		
+	<% if p.item.category_name == "Furniture" %>
 		<tr>
 			<td>
 				<%= p.item.item_name %>	
@@ -66,7 +68,10 @@ Check / Uncheck All
 
 <% end %>
 
+<!-- JS functions to check all boxes in a category -->
 <script type='text/javascript'>
     $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
     $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
+    $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
 </script>
+

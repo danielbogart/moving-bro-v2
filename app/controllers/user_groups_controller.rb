@@ -38,4 +38,13 @@ class UserGroupsController < ApplicationController
 		redirect_to '/user_groups', :notice => "You have left #{UserGroup.find_by_group_name(params[:id]).group_name}"
     end
 
+    def taken_items
+    	@user_group = current_user.user_group
+    end
+
+    def update_taken_items
+    	UserGroupItem.where(:id => params[:user_group_item_ids]).update_all(:taken => 1)
+    	redirect_to user_group_path(current_user.user_group.group_name), :notice => "Your items have been updated"
+    end
+
 end
