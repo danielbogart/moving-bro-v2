@@ -20,6 +20,7 @@
     <thead>
       <tr>
         <th>My User Group</th>
+        <th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,6 +30,9 @@
 
 				<% else %>
 					<%= link_to @my_group.group_name, "/user_groups/"+@my_group.group_name %>
+			</td>
+			<td>
+					<%= link_to "Leave Group", "/user_groups/"+@my_group.group_name, method: :delete, :class => "btn btn-sm btn-primary" %>					
 				<% end %>
 			</td>
 		</tr>

@@ -31,4 +31,11 @@ class UserGroupsController < ApplicationController
     	UserGroupItem.where(:id => params[:user_group_item_ids]).update_all(:taken => 0)
     	redirect_to user_group_path(current_user.user_group.group_name), :notice => "Your items have been updated"
     end
+
+    #use a method that isn't named destroy? leave_user_group?
+    def destroy
+    	current_user.update(:user_group => nil)
+		redirect_to '/user_groups', :notice => "You have left #{UserGroup.find_by_group_name(params[:id]).group_name}"
+    end
+
 end
