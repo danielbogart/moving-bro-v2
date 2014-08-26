@@ -1,4 +1,5 @@
 <h1>My Group's Needed Items</h1>
+
 <table class="table table-striped">
     <thead>
       <tr>
@@ -7,7 +8,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
+	<!--Refactor/put in partial?-->
 	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
 	<% @user_group.not_taken_user_group_items.each do |p| %>
 		<% if p.item.category_name == "Cleaning" %>
@@ -16,7 +17,7 @@
 				<%= p.item.item_name %>	
 			</td>
 			<td>
-				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center") %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center cleaning") %>	
 			</td>
 		</tr>
 		<% else %>
@@ -24,6 +25,10 @@
 	<% end %>	
 	</tbody>
 </table>
+
+<button type="button" id="check_all_cleaning" class="btn btn-sm btn-primary">
+Check / Uncheck All
+</button>
 
 <table class="table table-striped">
     <thead>
@@ -41,7 +46,7 @@
 				<%= p.item.item_name %>	
 			</td>
 			<td>
-				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center") %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center furniture") %>	
 			</td>
 		</tr>
 		<% else %>
@@ -50,9 +55,18 @@
 	</tbody>
 </table>
 
-<%= submit_tag("Update Group List", :class => "btn btn-primary") %>
+<button type="button" id="check_all_furniture" class="btn btn-sm btn-primary">
+Check / Uncheck All
+</button>
 
-<div class="btn btn-primary">Add To Amazon Cart</div>
-<div class="btn btn-primary">Print List</div>
+<%= submit_tag("Update Group List", :class => "btn btn-sm btn-primary") %>
+
+<div class="btn btn-sm btn-primary">Add To Amazon Cart</div>
+<div class="btn btn-sm btn-primary">Print List</div>
 
 <% end %>
+
+<script type='text/javascript'>
+    $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
+    $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
+</script>

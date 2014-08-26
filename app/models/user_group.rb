@@ -26,8 +26,9 @@ class UserGroup < ActiveRecord::Base
     self.user_group_items.where('taken > 0').order("created_at DESC")
   end
 
+  #get this working to use instead of if/else statements in view
   def cleaning_items
-    self.items.where('category_name = Cleaning')
+      self.items.where('category_name = ?', 'Cleaning')
   end
 
   #can start with where since class is already called
