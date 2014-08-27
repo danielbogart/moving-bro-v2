@@ -5,7 +5,7 @@ class UserGroup < ActiveRecord::Base
 	has_many :items, through: :user_group_items
 
   has_secure_password
-  validates :password_digest, :length => { :minimum => 4 }, :presence => true
+  validates :password_digest, :presence => true
 
 	validates :group_name, :presence => true, :uniqueness => true
 
