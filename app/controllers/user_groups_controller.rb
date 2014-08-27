@@ -10,7 +10,11 @@ class UserGroupsController < ApplicationController
 		@group = current_user.create_user_group(group_params)
 		current_user.user_group = @group
 		current_user.save
-		redirect_to '/user_groups', :notice => "Your group has created"
+		if @group.valid?
+			redirect_to '/user_groups', :notice => "Your group has created"
+		else
+			redirect_to '/user_groups', :notice => "Error, your group was not created"
+		end
 	end
 
 	def update
@@ -19,7 +23,7 @@ class UserGroupsController < ApplicationController
 	end
 
 	def group_params
-		params.require(:user_group).permit(:group_name)
+		params.require(:user_group).permit(:group_name, :password_digest)
 	end
 
 	def show

@@ -80,7 +80,7 @@
               <li class="nav-header">movingBro</li>
               <li><%= link_to "User Groups", "/user_groups"  %></li>
               <li><%= link_to "Master List Items", "/items"  %></li>
-              <li><%= link_to "Taken Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/"  if user_signed_in? %></li>
+              <li><%= link_to "Taken Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/"  if current_user.user_group != nil %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

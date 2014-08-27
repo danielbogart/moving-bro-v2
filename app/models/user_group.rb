@@ -3,7 +3,10 @@ class UserGroup < ActiveRecord::Base
 	has_many :user_group_items
 	has_many :users #added - not in original gist
 	has_many :items, through: :user_group_items
-	
+
+  has_secure_password
+  validates :password_digest, :length => { :minimum => 4 }, :presence => true
+
 	validates :group_name, :presence => true, :uniqueness => true
 
 	def create_group_items
