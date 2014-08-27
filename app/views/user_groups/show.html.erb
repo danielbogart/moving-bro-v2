@@ -10,6 +10,8 @@
 	<tbody>
 	<!--Refactor/put in partial?-->
 	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
+
+	<!--return user group items with item category = cleaning -->
 	<% @user_group.not_taken_user_group_items.each do |p| %>
 
 	<% if p.item.category_name == "Cleaning" %>
