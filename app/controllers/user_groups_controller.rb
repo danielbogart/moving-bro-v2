@@ -1,5 +1,7 @@
 class UserGroupsController < ApplicationController
 
+	before_action :authenticate_user!
+	
 	def index
 		@groups = UserGroup.all
 		@group = UserGroup.new
