@@ -44,6 +44,7 @@ gem 'quiet_assets', group: :developement
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'bcrypt-ruby'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -153,6 +153,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bcrypt-ruby
   coffee-rails (~> 4.0.0)
   devise
   foreman

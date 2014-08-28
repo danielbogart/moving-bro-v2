@@ -20,12 +20,16 @@ class UserGroupsController < ApplicationController
 	def update
 		group_name = params[:id] || params[:user_group][:group_name]
 		@user_group = UserGroup.find_by_group_name(group_name)
-		current_user.update(:user_group => @user_group)
-		redirect_to '/user_groups', :notice => "You have joined"
+		if @user_group && @user_group.authenticate(params[:user_group][:password])
+			current_user.update(:user_group => @user_group)
+			redirect_to '/user_groups', :notice => "You have joined #{@user_group.group_name}"
+		else
+			redirect_to '/user_groups', :notice => "Error, couldn't join #{group_name}. Invalid group name or password"
+		end
 	end
 
 	def group_params
-		params.require(:user_group).permit(:group_name, :password_digest)
+		params.require(:user_group).permit(:group_name, :password)
 	end
 
 	def show
