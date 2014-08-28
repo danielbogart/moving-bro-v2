@@ -13,7 +13,7 @@ class UserGroupsController < ApplicationController
 		if @group.valid?
 			redirect_to '/user_groups', :notice => "Your group has created"
 		else
-			redirect_to '/user_groups', :notice => "Error, your group was not created"
+			redirect_to '/user_groups', :error => "Error, your group was not created"
 		end
 	end
 
@@ -24,7 +24,7 @@ class UserGroupsController < ApplicationController
 			current_user.update(:user_group => @user_group)
 			redirect_to '/user_groups', :notice => "You have joined #{@user_group.group_name}"
 		else
-			redirect_to '/user_groups', :notice => "Error, couldn't join #{group_name}. Invalid group name or password"
+			redirect_to '/user_groups', :error => "Error, couldn't join #{group_name}. Invalid group name or password"
 		end
 	end
 
