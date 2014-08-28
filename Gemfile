@@ -40,6 +40,7 @@ group :development, :test do
 gem 'foreman'
 end
 
+gem 'quiet_assets', group: :developement
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

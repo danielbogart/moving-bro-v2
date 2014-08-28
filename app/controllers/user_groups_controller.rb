@@ -18,9 +18,10 @@ class UserGroupsController < ApplicationController
 	end
 
 	def update
-		@user_group = UserGroup.find_by_group_name(params[:id])
+		group_name = params[:id] || params[:user_group][:group_name]
+		@user_group = UserGroup.find_by_group_name(group_name)
 		current_user.update(:user_group => @user_group)
-		redirect_to '/user_groups', :notice => "You have joined #{UserGroup.find_by_group_name(params[:id]).group_name}"
+		redirect_to '/user_groups', :notice => "You have joined"
 	end
 
 	def group_params

@@ -1,5 +1,5 @@
 <div class="container">
-	<h3>Join a group</h3>
+<h3>Join a group</h3>
 	<br>
 	<div class="col-md-4">
 		<%= simple_form_for @group, :url => "/user_groups/", :method => :put do |f| %>
@@ -9,9 +9,9 @@
 		    <%= f.input :password_digest, :maxlength => 15 %>
 		    <br>
 		    <div class="form-actions">
-		    	<%= f.button :submit, :class => "btn btn-primary" %>
+		    	<%= f.button :submit, :class => "btn btn-primary", :label => "Join Group" %>
 		 	</div>
 		</div>
 	</div>
-	</div>
+</div>
 <% end %>
