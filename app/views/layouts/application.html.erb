@@ -82,7 +82,13 @@
               <li><%= link_to "Master List Items", "/items"  %></li>
               <% if user_signed_in? %>
                 <% if current_user.user_group != nil %>
-              <li><%= link_to "Taken Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/" %></li>
+                  <li><%= link_to "Taken Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/" %></li>
+                  <h4>Group Members</h4>
+                  <% current_user.user_group.users.each do |p| %>
+                    <li><%= p.email %></li>
+                  <% end %>
+                  <br>
+                  <li><div class="btn btn-sm btn-primary">Invite More</div></li>
                 <% else %>
                 <% end %>
               <% else %>
