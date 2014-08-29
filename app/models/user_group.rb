@@ -40,6 +40,14 @@ class UserGroup < ActiveRecord::Base
     where('created_at < ?', 1.week.ago)
   end
 
+  def self.search(search)
+    if search
+      self.where('lower(group_name) LIKE ?', "%#{search}%".downcase)
+    else
+      self.all
+    end
+  end
+
 	after_create :create_group_items
   	
 end

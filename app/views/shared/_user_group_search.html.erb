@@ -1,0 +1,7 @@
+<h4>Search for a group</h4>
+<%= form_tag "/user_groups/search", :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
+<% end %>

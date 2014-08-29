@@ -59,4 +59,8 @@ class UserGroupsController < ApplicationController
     	redirect_to user_group_path(current_user.user_group.group_name), :notice => "Your items have been updated"
     end
 
+    def search
+    	@user_group_results = UserGroup.search(params[:search])
+    end
+
 end

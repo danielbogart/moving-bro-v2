@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   get 'home/index'
   get 'user_groups/index'
+  #must go above resources :user_groups otherwise it calls get user_groups/:id
+  get 'user_groups/search' => 'user_groups#search'
 
   authenticated :user do
      resources :items
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   post 'user_groups/:group_name/taken_items' => 'user_groups#update_taken_items'
 
   put 'user_groups' => 'user_groups#update'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

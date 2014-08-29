@@ -1,0 +1,26 @@
+<h1>Search Reults</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<%= render 'shared/user_group_search' %>
+		</div>
+	</div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Found User Groups</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @user_group_results.order("created_at DESC").each do |p| %>
+		<tr>
+			<td>
+				<%= p.group_name %>
+			</td>
+		</tr>
+	<% end %>	
+	</tbody>
+</table>
