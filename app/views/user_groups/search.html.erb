@@ -18,7 +18,7 @@
 	<% @user_group_results.order("created_at DESC").each do |p| %>
 		<tr>
 			<td>
-				<%= p.group_name %>
+				<%= link_to p.group_name, "/user_groups/join_user_group/"+p.group_name, id: "join_link", remote: true, :group_name => p.group_name %>
 			</td>
 		</tr>
 	<% end %>	

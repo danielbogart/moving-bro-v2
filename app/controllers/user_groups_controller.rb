@@ -63,4 +63,9 @@ class UserGroupsController < ApplicationController
     	@user_group_results = UserGroup.search(params[:search])
     end
 
+    #added for JS popup
+    def join_user_group
+    	@group = UserGroup.new
+    	@group_name = params[:group_name]
+    end
 end

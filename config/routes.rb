@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   #must go above resources :user_groups otherwise it calls get user_groups/:id
   get 'user_groups/search' => 'user_groups#search'
 
+  get 'user_groups/join_user_group/:group_name' => 'user_groups#join_user_group'
+
   authenticated :user do
      resources :items
      resources :user_groups
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   post 'user_groups/:group_name/taken_items' => 'user_groups#update_taken_items'
 
   put 'user_groups' => 'user_groups#update'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

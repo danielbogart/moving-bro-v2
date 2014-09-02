@@ -1,9 +1,8 @@
-<h4>Join a group</h4>
 <%= simple_form_for @group, :url => "/user_groups/", :method => :put do |f| %>
 	<%= f.error_notification %>
 	<div class="form-inputs">
-	    <%= f.input :group_name, :maxlength => 15 %>
-	    <%= f.input :password, :maxlength => 15 %>
+		    <%= f.input :password, :maxlength => 15 %>
+		    <%= f.hidden_field :group_name, value: @group_name %>
 	    <br>
 	    <div class="form-actions">
 	    	<%= f.button :submit, :class => "btn btn-primary", :value => "Join Group" %>
