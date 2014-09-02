@@ -1,5 +1,5 @@
 Moving Bro is a web app designed for those who want their upcoming move to be painless.
-The site recommends a list of household items, cleaning supplies, furniture, and more, and allows users to check off what they already.
+The site recommends a list of household items, cleaning supplies, furniture, and more, and allows users to check off what they already have.
 
 The master list may then be printed, or brought to Amazon to add items to cart.
 Built on Rails 4 and leveraging jQuery, HTML5, CSS3, and Bootstrap.
