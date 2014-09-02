@@ -1,12 +1,14 @@
-<%= simple_form_for @group, :url => "/user_groups/", :method => :put do |f| %>
-	<%= f.error_notification %>
-	<div class="form-inputs">
-		    <%= f.input :password, :maxlength => 15 %>
-		    <%= f.hidden_field :group_name, value: @group_name %>
-	    <br>
-	    <div class="form-actions">
-	    	<%= f.button :submit, :class => "btn btn-primary", :value => "Join Group" %>
-	 	</div>
-	</div>
-<% end %>
-<br>
+<div class="user-group-partial">
+	<%= simple_form_for @group, :url => "/user_groups/", :method => :put do |f| %>
+		<%= f.error_notification %>
+		<div class="form-inputs">
+			    <%= f.input :password, :maxlength => 15 %>
+			    <%= f.hidden_field :group_name, value: @group_name %>
+		    <br>
+		    <div class="form-actions">
+		    	<%= f.button :submit, :class => "btn btn-primary", :value => "Join Group" %>
+		 	</div>
+		</div>
+	<% end %>
+	<br>
+</div>
