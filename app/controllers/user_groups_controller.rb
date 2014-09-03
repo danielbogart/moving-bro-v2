@@ -74,17 +74,19 @@ class UserGroupsController < ApplicationController
     #email link brings new users here
     def join_by_email
     	@user_group = UserGroup.find_by_token(params[:token])
+		current_user.update(:user_group => @user_group)
+		UserGroupMailer.join_group_confirmation(@user_group.id, current_user.id).deliver
+		redirect_to '/user_groups', :notice => "You have joined #{@user_group.group_name}"
     end
 
     #for form to invite new members by email
     def invite_members
-    	@user = User.new
     end
 
     #when form is posted, following method executed
-    def send_invite_to_members    	
+    def send_invite_to_members   
     	token = current_user.user_group.token
-    	email = params[:user][:email]
+    	email = params[:user_emails][:email]
     	UserGroupMailer.group_invitation_email(email, token).deliver
     	redirect_to '/user_groups', :notice => "Your invitations have been sent"
     end

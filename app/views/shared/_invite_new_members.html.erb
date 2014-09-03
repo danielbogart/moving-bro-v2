@@ -1,8 +1,10 @@
 <div class="user-group-partial">
-	<%= simple_form_for @user, :url => "/user_groups/sent_emails/", :method => :post do |f| %>
+	<%= simple_form_for :user_emails, :url => "/user_groups/sent_emails/", :method => :post do |f| %>
 		<%= f.error_notification %>
 		<div class="form-inputs">
 			    <%= f.input :email, :maxlength => 25 %>
+			    <%= f.input :email2, :maxlength => 25 %>
+			    <%= f.input :email3, :maxlength => 25 %>
 		    <br>
 		    <div class="form-actions">
 		    	<%= f.button :submit, :class => "btn btn-primary", :value => "Invite Bros" %>
