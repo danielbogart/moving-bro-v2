@@ -84,10 +84,10 @@ class UserGroupsController < ApplicationController
     end
 
     #when form is posted, following method executed
-    def send_invite_to_members   
+    def send_invite_to_members       
     	token = current_user.user_group.token
     	email = params[:user_emails][:email]
-    	UserGroupMailer.group_invitation_email(email, token).deliver
+   		UserGroupMailer.group_invitation_email(email, token).deliver
     	redirect_to '/user_groups', :notice => "Your invitations have been sent"
     end
 
