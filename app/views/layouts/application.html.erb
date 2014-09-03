@@ -81,7 +81,7 @@
                     <li><%= p.email %></li>
                   <% end %>
                   <br>
-                  <li><div class="btn btn-sm btn-primary">Invite More</div></li>
+                  <li><%= link_to "Invite More", "/user_groups/"+current_user.user_group.token+"/invite_members", :class => 'btn btn-sm btn-primary' %></li>
                 <% else %>
                 <% end %>
               <% else %>

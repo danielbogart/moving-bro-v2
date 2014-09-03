@@ -6,4 +6,9 @@ class UserGroupMailer < ActionMailer::Base
   	mail to: User.find(user_id).email, subject: "Thanks for joining!"
   end
 
+  def group_invitation_email(email_address, token)
+  	@token = token.to_s
+  	mail to: email_address, subject: "You've been invited bro!"
+  end
+
 end
