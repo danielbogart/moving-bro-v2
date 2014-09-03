@@ -70,4 +70,8 @@ class UserGroupsController < ApplicationController
     	@group_name = params[:group_name]
        	@group_id = UserGroup.find_by_group_name(@group_name).id
     end
+
+    def join_by_email
+    	@user_group = UserGroup.find_by_token(params[:token])
+    end
 end

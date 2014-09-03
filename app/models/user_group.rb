@@ -9,12 +9,21 @@ class UserGroup < ActiveRecord::Base
 
 	validates :group_name, :presence => true, :uniqueness => true
 
+  before_create { generate_token(:token) }
+  after_create :create_group_items
+
 	def create_group_items
 		Item.all.each do |item|
 			user_group_item = self.user_group_items.build(item_id: item.id, taken: 1)
 			user_group_item.save
 		end
 	end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while UserGroup.exists?(column => self[column])
+  end
 
   #instance method below (may need .references(:user_group_items) at the end)
   def not_taken_items
@@ -47,7 +56,5 @@ class UserGroup < ActiveRecord::Base
       self.all
     end
   end
-
-	after_create :create_group_items
   	
 end

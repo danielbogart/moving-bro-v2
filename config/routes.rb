@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'user_groups/join_user_group/:group_name' => 'user_groups#join_user_group'
 
+  get 'user_groups/:token/sign_up' => 'user_groups#join_by_email'
+
   authenticated :user do
      resources :items
      resources :user_groups
