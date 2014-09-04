@@ -84,11 +84,17 @@ class UserGroupsController < ApplicationController
     end
 
     #when form is posted, following method executed
-    def send_invite_to_members       
+    def send_invite_to_members
     	token = current_user.user_group.token
-    	email = params[:user_emails][:email]
-   		UserGroupMailer.group_invitation_email(email, token).deliver
-    	redirect_to '/user_groups', :notice => "Your invitations have been sent"
+    	emails = params[:user_emails][:emails].split(",")
+        begin
+          emails.each do |e|
+            UserGroupMailer.group_invitation_email(e, token).deliver
+          end        
+    	  redirect_to '/user_groups', :notice => "Your invitations have been sent"
+        rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+        redirect_to '/user_groups/'+token+'/invite_members', :error => "Error sending emails. Check format and try again"
+        end
     end
 
 end

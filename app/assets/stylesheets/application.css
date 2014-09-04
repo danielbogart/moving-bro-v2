@@ -14,3 +14,8 @@
  *= stub application-print
  *= require_self
  */
+
+.custom-text-field {
+	height: auto;
+	width: auto;
+}

@@ -1,11 +1,10 @@
 <div class="user-group-partial">
+	<h3>Enter emails separated by commas</h3>
 	<%= simple_form_for :user_emails, :url => "/user_groups/sent_emails/", :method => :post do |f| %>
 		<%= f.error_notification %>
 		<div class="form-inputs">
-			    <%= f.input :email, :maxlength => 25 %>
-			    <%= f.input :email2, :maxlength => 25 %>
-			    <%= f.input :email3, :maxlength => 25 %>
-		    <br>
+			    <%= f.text_area :emails, :size => "70x10" %>
+		    <br><br>
 		    <div class="form-actions">
 		    	<%= f.button :submit, :class => "btn btn-primary", :value => "Invite Bros" %>
 		 	</div>
