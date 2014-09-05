@@ -94,11 +94,16 @@
         </div><!--/span-->
         <% else %>
         <% end %>
-      </div><!--/row-->
 
-      <footer>
-        <p>&copy; Moving Bro 2014</p>
-      </footer>
+      <% if current_page?("/") %>
+        <footer>
+          <p>&copy; Moving Bro 2014</p>
+        </footer>
+      <% end %>
+
+      </div><!--/row-->
+      
+
 
     </div> <!-- /container -->
 
