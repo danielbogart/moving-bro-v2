@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   add_flash_types :error
 
   def after_sign_in_path_for(resource)
-    '/user_groups'
+  	if current_user.user_group == nil
+    	'/user_groups'
+    else
+    	user_group_path(current_user.user_group.group_name)
+    end
   end
 end

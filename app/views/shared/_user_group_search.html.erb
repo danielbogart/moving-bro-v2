@@ -1,7 +1,16 @@
-<h4>Search for a group</h4>
-<%= form_tag "/user_groups/search", :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :name => nil %>
-	</p>
-<% end %>
+<div class="row row-centered">
+	<div class="col-lg-6 col-centered boxShadow sign-up center-block">
+		<h1>Create or Join a Group</h1>
+		<br>
+		<%= form_tag "/user_groups/search", :method => 'get' do %>
+			<div class="form-inputs">
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Search by group name</label>
+			    	<%= text_field_tag :search, params[:search], :class => "form-control", :placeholder => "Enter group name" %>
+			    	<br>
+					<%= submit_tag "Search", :name => nil, :class => "btn btn-md btn-warning" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

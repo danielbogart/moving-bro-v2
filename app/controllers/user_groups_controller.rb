@@ -25,7 +25,7 @@ class UserGroupsController < ApplicationController
 		if @user_group && @user_group.authenticate(params[:user_group][:password])
 			current_user.update(:user_group => @user_group)
 			UserGroupMailer.join_group_confirmation(@user_group.id, current_user.id).deliver
-			redirect_to '/user_groups', :notice => "You have joined #{@user_group.group_name}"
+			redirect_to user_group_path(current_user.user_group.group_name), :notice => "You have joined #{@user_group.group_name}"
 		else
 			redirect_to '/user_groups', :error => "Error, couldn't join #{group_name}. Invalid group name or password"
 		end
