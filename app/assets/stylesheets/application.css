@@ -30,6 +30,10 @@
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
 
+.sign-up {
+	padding: 1em 3em 3em 3em;
+}
+
 .mb-list.img-responsive {
     margin: 0 auto;
 }
@@ -47,4 +51,20 @@
 
 #its-free {
 	font-size: 13px;
+}
+
+.rounded-corners-input {
+	border-radius: 5px;
+}
+
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
 }

@@ -1,17 +1,33 @@
-<h2>Sign up</h2>
+<div class="container">
+	<div class="row row-centered">
+		<div class="col-lg-6 col-centered boxShadow sign-up center-block">
+			<h1 class="text-center">Sign up</h1>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			  <%= f.error_notification %>
+			
+			<div class="form-inputs">
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Email address</label>
+				    <%= f.input :email, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Enter email" %>
+				</div>
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Password</label>
+				    <%= f.input :password, :required => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Password" %>
+				</div>
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Confirm Password</label>
+				    <%= f.input :password_confirmation, :required => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Confirm password" %>
+		  		</div>
+		  	</div>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true, :maxlength => 25 %>
-    <%= f.input :password, :required => true, :maxlength => 25 %>
-    <%= f.input :password_confirmation, :required => true, :maxlength => 25 %>
-  </div>
+			  <div class="form-actions">
+			    <%= f.button :submit, "Sign up", :class => "btn btn-md btn-warning" %>
+			  </div>
+			<% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+			<!--<%= render "devise/shared/links" %>-->
 
-<%= render "devise/shared/links" %>
+		</div>
+	</div>
+</div>
