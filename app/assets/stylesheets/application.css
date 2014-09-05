@@ -19,3 +19,32 @@
 	height: auto;
 	width: auto;
 }
+
+.boxShadow {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.mb-list.img-responsive {
+    margin: 0 auto;
+}
+
+.rounded-corners {
+	border-radius: 5px;
+	padding: 2em;
+	width: 50%;
+	display: inline-block;
+}
+
+.get-started {
+	margin: 0 auto;
+}
+
+#its-free {
+	font-size: 13px;
+}
