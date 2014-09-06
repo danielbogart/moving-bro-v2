@@ -7,7 +7,9 @@ class UserGroupsController < ApplicationController
 		@group = UserGroup.new
 		@my_group = current_user.user_group
         if current_user.user_group != nil 
-            redirect_to '/user_groups/'+current_user.user_group.group_name
+            encoded_url = URI.encode('/user_groups/'+current_user.user_group.group_name) 
+            URI.parse(encoded_url)           
+            redirect_to encoded_url
         end
 	end
 
@@ -101,8 +103,10 @@ class UserGroupsController < ApplicationController
         begin
           emails.each do |e|
             UserGroupMailer.group_invitation_email(e, token).deliver
-          end        
-    	  redirect_to '/user_groups', :notice => "Your invitations have been sent"
+          end
+          encoded_url = URI.encode('/user_groups/'+current_user.user_group.group_name) 
+          URI.parse(encoded_url)           
+    	  redirect_to encoded_url, :notice => "Your invitations have been sent"
         rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
         redirect_to '/user_groups/'+token+'/invite_members', :error => "Error sending emails. Check format and try again"
         end

@@ -20,12 +20,12 @@
 				    <%= f.input :password_confirmation, :required => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Confirm password" %>
 		  		</div>
 		  	</div>
-
 			<div class="form-actions">
+				<%= link_to "Log in", new_session_path(resource_name), :class => "pull-right" %>
 			    <%= f.button :submit, "Sign Me Up!", :class => "btn btn-md btn-warning" %>
 			</div>
 			<% end %>
-			<!--<%= render "devise/shared/links" %>-->
+
 		</div>
 	</div>
 </div>
