@@ -73,7 +73,7 @@
         <%= yield %>
         <% if user_signed_in? && (current_page?("/") == false) %>
           <% if current_user.user_group != nil && (current_page?("/user_groups") == false) %>        
-            <div class="col-lg-3">
+            <div class="col-lg-3 pull-right">
               <div class="well sidebar-nav boxShadow">
                 <h3>Sidebar</h3>
                 <ul class="nav nav-list">

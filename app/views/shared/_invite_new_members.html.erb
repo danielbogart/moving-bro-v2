@@ -1,14 +1,16 @@
-<div class="user-group-partial">
-	<h3>Enter emails separated by commas</h3>
-	<%= simple_form_for :user_emails, :url => "/user_groups/sent_emails/", :method => :post do |f| %>
-		<%= f.error_notification %>
-		<div class="form-inputs">
-			    <%= f.text_area :emails, :size => "70x10" %>
-		    <br><br>
-		    <div class="form-actions">
-		    	<%= f.button :submit, :class => "btn btn-primary", :value => "Invite Bros" %>
-		 	</div>
-		</div>
-	<% end %>
-	<br>
+<div class="col-lg-6 boxShadow col-lg-offset-2">
+	<div class="user-group-partial">
+		<h3>Enter emails separated by commas</h3>
+		<%= simple_form_for :user_emails, :url => "/user_groups/sent_emails/", :method => :post do |f| %>
+			<%= f.error_notification %>
+			<div class="form-inputs">
+				    <%= f.text_area :emails, :size => "87x10", :input_html => { :class => "form-control" }, :placeholder => "Don't forget the commas!" %>
+			    <br><br>
+			    <div class="form-actions">
+			    	<%= f.button :submit, :class => "btn btn-primary", :value => "Invite Bros"%>
+			 	</div>
+			</div>
+		<% end %>
+		<br>
+	</div>
 </div>
