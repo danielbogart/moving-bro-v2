@@ -6,6 +6,9 @@ class UserGroupsController < ApplicationController
 		@groups = UserGroup.all
 		@group = UserGroup.new
 		@my_group = current_user.user_group
+        if current_user.user_group != nil 
+            redirect_to '/user_groups/'+current_user.user_group.group_name
+        end
 	end
 
 	def create

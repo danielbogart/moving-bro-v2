@@ -2,7 +2,8 @@
 	<%= simple_form_for @group, :url => "/user_groups/", :method => :put do |f| %>
 		<%= f.error_notification %>
 		<div class="form-inputs">
-			    <%= f.input :password, :maxlength => 15 %>
+				<br>
+			    <%= f.input :password, :maxlength => 40, :input_html => { :class => "form-control" }, :placeholder => "Enter group password", :label => false %>
 			    <%= f.hidden_field :group_name, value: @group_name %>
 		    <br>
 		    <div class="form-actions">

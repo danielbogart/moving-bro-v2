@@ -1,26 +1,30 @@
-<h1>Search Results</h1>
-
 <div class="container">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-lg-12">
+			<br>
 			<%= render 'shared/user_group_search' %>
 		</div>
 	</div>
+	<br><br>
+	<div class="row row-centered">
+		<div class="col-lg-6 col-centered boxShadow">
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th><h1>Search Results</h1></th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @user_group_results.order("created_at DESC").each do |p| %>
+					<tr>
+						<td>
+							<%= link_to p.group_name, "/user_groups/join_user_group/"+p.group_name, :class => "join_link", :id => "user_group"+p.id.to_s, remote: true, :group_name => p.group_name %>
+						</td>
+					</tr>
+				<% end %>	
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
-
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Found User Groups</th>
-		</tr>
-	</thead>
-	<tbody>
-	<% @user_group_results.order("created_at DESC").each do |p| %>
-		<tr>
-			<td>
-				<%= link_to p.group_name, "/user_groups/join_user_group/"+p.group_name, :class => "join_link", :id => "user_group"+p.id.to_s, remote: true, :group_name => p.group_name %>
-			</td>
-		</tr>
-	<% end %>	
-	</tbody>
-</table>
+<br>

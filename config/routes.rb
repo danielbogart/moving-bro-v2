@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   authenticated :user do
      resources :items
      resources :user_groups
+     root :to => "user_groups#index", :as => "authenticated_root"
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
