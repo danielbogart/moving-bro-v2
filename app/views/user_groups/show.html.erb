@@ -1,79 +1,81 @@
-<h1>My Group's Needed Items</h1>
+<div class="col-lg-9">
+	<h1>My Group's Needed Items</h1>
 
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Cleaning</th>
-        <th>Got It?</th>
-		</tr>
-	</thead>
-	<tbody>
-	<!--Refactor/put in partial?-->
-	<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
+	<table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Cleaning</th>
+	        <th>Got It?</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!--Refactor/put in partial?-->
+		<%= form_tag("/user_groups/"+current_user.user_group.group_name, method: "post") do %>
 
-	<!--return user group items with item category = cleaning -->
-	<% @user_group.not_taken_user_group_items.each do |p| %>
+		<!--return user group items with item category = cleaning -->
+		<% @user_group.not_taken_user_group_items.each do |p| %>
 
-	<% if p.item.category_name == "Cleaning" %>
-		<tr>
-			<td>
-				<%= p.item.item_name %>	
-			</td>
-			<td>
-				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center cleaning") %>
-			</td>
-		</tr>
-		<% else %>
-		<% end %>
-	<% end %>	
-	</tbody>
-</table>
+		<% if p.item.category_name == "Cleaning" %>
+			<tr>
+				<td>
+					<%= p.item.item_name %>	
+				</td>
+				<td>
+					<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center cleaning") %>
+				</td>
+			</tr>
+			<% else %>
+			<% end %>
+		<% end %>	
+		</tbody>
+	</table>
 
-<button type="button" id="check_all_cleaning" class="btn btn-sm btn-primary">
-Check / Uncheck All
-</button>
+	<button type="button" id="check_all_cleaning" class="btn btn-sm btn-primary">
+	Check / Uncheck All
+	</button>
 
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Furniture</th>
-        <th>Got It?</th>
-		</tr>
-	</thead>
-	<tbody>
-	<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
-	<% @user_group.not_taken_user_group_items.each do |p| %>
-		
-	<% if p.item.category_name == "Furniture" %>
-		<tr>
-			<td>
-				<%= p.item.item_name %>	
-			</td>
-			<td>
-				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center furniture") %>	
-			</td>
-		</tr>
-		<% else %>
-		<% end %>
-	<% end %>	
-	</tbody>
-</table>
+	<table class="table table-striped">
+	    <thead>
+	      <tr>
+	        <th>Furniture</th>
+	        <th>Got It?</th>
+			</tr>
+		</thead>
+		<tbody>
+		<!--this is displaying ITEMS, not UG ITEMS, and thus is passing the incorrect id -->
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+			
+		<% if p.item.category_name == "Furniture" %>
+			<tr>
+				<td>
+					<%= p.item.item_name %>	
+				</td>
+				<td>
+					<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "text-center furniture") %>	
+				</td>
+			</tr>
+			<% else %>
+			<% end %>
+		<% end %>	
+		</tbody>
+	</table>
 
-<button type="button" id="check_all_furniture" class="btn btn-sm btn-primary">
-Check / Uncheck All
-</button>
+	<button type="button" id="check_all_furniture" class="btn btn-sm btn-primary">
+	Check / Uncheck All
+	</button>
 
-<%= submit_tag("Update Group List", :class => "btn btn-sm btn-primary") %>
-<%= link_to "Add To Amazon Cart", @amazon_link, :class => "btn btn-sm btn-primary" %>
+	<%= submit_tag("Update Group List", :class => "btn btn-sm btn-primary") %>
+	<%= link_to "Add To Amazon Cart", @amazon_link, :class => "btn btn-sm btn-primary" %>
 
-<div class="btn btn-sm btn-primary" onclick="window.print();return false;">Print List</div>
+	<div class="btn btn-sm btn-primary" onclick="window.print();return false;">Print List</div>
 
-<% end %>
+	<% end %>
 
-<!-- JS functions to check all boxes in a category -->
-<script type='text/javascript'>
-    $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
-    $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
-    $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
-</script>
+	<!-- JS functions to check all boxes in a category -->
+	<script type='text/javascript'>
+	    $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
+	    $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
+	    $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
+	</script>
+</div>
 

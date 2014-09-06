@@ -49,10 +49,12 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<% if user_signed_in? %>
-              <a class="navbar-brand" href="/user_groups">Moving Bro</a>
+						<% if user_signed_in? && current_user.user_group == nil %>
+              <%= link_to "Moving Bro", "/user_groups/", :class => "navbar-brand" %>
+            <% elsif user_signed_in? && current_user.user_group != nil %>
+              <%= link_to "Moving Bro", "/user_groups/"+current_user.user_group.group_name, :class => "navbar-brand" %>
             <% else %>
-              <a class="navbar-brand" href="/">Moving Bro</a>
+              <%= link_to "Moving Bro", "/", :class => "navbar-brand" %>
             <% end %>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,15 +69,14 @@
 
     <div class="container">
     <%= bootstrap_flash %>  
-      <div class="row">        
-          <%= yield %>
-        <% if user_signed_in? && (current_page?("/") == false)%>
-          <% if current_user.user_group != nil %>        
+      <div class="row">     
+        <%= yield %>
+        <% if user_signed_in? && (current_page?("/") == false) %>
+          <% if current_user.user_group != nil && (current_page?("/user_groups") == false) %>        
             <div class="col-lg-3">
               <div class="well sidebar-nav boxShadow">
                 <h3>Sidebar</h3>
                 <ul class="nav nav-list">
-                  <li><%= link_to "User Groups", "/user_groups"  %></li>
                   <li><%= link_to "Master List Items", "/items"  %></li>
                   <% if user_signed_in? %>
                     

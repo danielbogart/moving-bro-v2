@@ -1,17 +1,21 @@
-<div class="container">
-	<h3>Add a new user group</h3>
-	<br>
-	<div class="col-md-4">
+<div class="row row-centered">
+	<div class="col-lg-6 col-centered boxShadow sign-up center-block">
+		<h1>Create a Group</h1>
+		<br>
 		<%= simple_form_for @group do |f| %>
 		<%= f.error_notification %>
-		<div class="form-inputs">
-		    <%= f.input :group_name, :maxlength => 15, :label => "Group Name" %>
-		    <%= f.input :password, :maxlength => 15, :label => "Password" %>
-		    <br>
-		    <div class="form-actions">
-		    	<%= f.button :submit, :class => "btn btn-primary" %>
-		 	</div>
-		</div>
+			<div class="form-inputs">
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Enter group name</label>
+			    	<%= f.input :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name" %>
+			    </div>
+			    <div class="form-group">
+			    	<label for="exampleInputEmail1">Password</label>
+			    	<%= f.input :password, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password" %>
+			    </div>
+					<%= f.button :submit, :class => "btn btn-md btn-warning" %>
+				</div>
+			</div>
+		<% end %>
 	</div>
-	</div>
-<% end %>
+</div>

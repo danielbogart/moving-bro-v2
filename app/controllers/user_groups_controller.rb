@@ -13,9 +13,9 @@ class UserGroupsController < ApplicationController
 		current_user.user_group = @group
 		current_user.save
 		if @group.valid?
-			redirect_to '/user_groups', :notice => "Your group has created"
+			redirect_to '/user_groups/'+@group.group_name, :notice => "Your group has been created"
 		else
-			redirect_to '/user_groups', :error => "Error, your group was not created"
+			redirect_to '/user_groups/', :error => "Error: group name may already be taken. Search, or try a new name."
 		end
 	end
 
@@ -24,7 +24,7 @@ class UserGroupsController < ApplicationController
 		@user_group = UserGroup.find_by_group_name(group_name)
 		if @user_group && @user_group.authenticate(params[:user_group][:password])
 			current_user.update(:user_group => @user_group)
-			UserGroupMailer.join_group_confirmation(@user_group.id, current_user.id).deliver
+			#UserGroupMailer.join_group_confirmation(@user_group.id, current_user.id).deliver
 			redirect_to user_group_path(current_user.user_group.group_name), :notice => "You have joined #{@user_group.group_name}"
 		else
 			redirect_to '/user_groups', :error => "Error, couldn't join #{group_name}. Invalid group name or password"
