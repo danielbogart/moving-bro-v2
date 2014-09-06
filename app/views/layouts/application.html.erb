@@ -83,14 +83,14 @@
                     <h4>Group Members</h4>
                     <% current_user.user_group.users.each do |p| %>
                       <li><%= p.email %></li>
+                    <% end %>
                     <br>
                     <li><%= link_to "Invite More", "/user_groups/"+current_user.user_group.token+"/invite_members", :class => 'btn btn-sm btn-primary' %></li>
                     <br>
                     <li><%= link_to "Leave Group", "/user_groups/"+current_user.user_group.group_name, method: :delete, :class => "btn btn-sm btn-primary" %></li>
                   </ul>
                 </div><!--/.well -->
-              </div><!--/span-->
-            <% end %>
+              </div><!--/span-->            
           <% end %>
         <% else %>
         <% end %>
