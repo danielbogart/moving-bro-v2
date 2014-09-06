@@ -1,11 +1,30 @@
 <div class="container">
+	<div id="living-with-housemates">
+	<br>
 	<%= render 'shared/user_group_search' %>
 
 	<% if @my_group.nil? %>
-		<br>
-		<h1 class="text-center">OR</h1>
-		<br>
-		<%= render "shared/new_user_group_form" %>
+			<br>
+			<h1 class="text-center">OR</h1>
+			<br>
+			<%= render "shared/new_user_group_form" %>
+			<br>
+		</div>
+
+		<div id="han-style">
+		<%= render "shared/solo_user_group_form" %>
+		</div>
 
 	<% end %>
 </div>
+
+<script>
+	$(document).ready(function() {
+
+		$('#living-with-housemates-btn').click(function(){
+			$('#han-style').hide();
+			$('#living-with-housemates').show();
+		});
+
+	});
+</script>

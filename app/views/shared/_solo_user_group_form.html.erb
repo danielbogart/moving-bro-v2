@@ -1,0 +1,22 @@
+<div class="row row-centered">
+	<div class="col-lg-6 col-centered boxShadow sign-up center-block">
+		<h1>Moving solo or with housemates?</h1>
+		<br>
+		<%= simple_form_for @group do |f| %>
+		<%= f.error_notification %>
+			<div class="form-inputs text-center">
+			    	<%= f.hidden_field :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name", :value => "House-"+Random.rand(1000...999999).to_s %>
+
+			    	<%= f.hidden_field :password, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password", :value => Random.rand(1000...999999).to_s %>
+				<div class="row">
+                	<div class="col-md-6 text-center">
+						<div class="btn btn-md btn-warning" id='living-with-housemates-btn'>Living with housemates</div>
+					</div>
+					<div class="col-md-6 text-center">
+						<%= f.button :submit, :class => "btn btn-md btn-warning", :value => "Going Han style (solo)" %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

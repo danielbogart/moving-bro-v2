@@ -32,6 +32,7 @@ class UserGroupsController < ApplicationController
 	end
 
 	def group_params
+        #if statement here to create group params automatically for solo movers
 		params.require(:user_group).permit(:group_name, :password)
 	end
 
