@@ -72,3 +72,7 @@
 #living-with-housemates {
   display: none;
 }
+
+.no-padding-list {
+  padding: 0;
+}
