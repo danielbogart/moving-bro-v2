@@ -1,3 +1,4 @@
+<% if @user_group.taken_user_group_items.count != 0 %>
 <div class="col-lg-9">
 	<div class="row row-centered">
 		<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
@@ -31,3 +32,13 @@
 <script type='text/javascript'>
     $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
 </script>
+
+<% else %>
+<div class="col-lg-9">
+	<div class="row row-centered">
+		<div class="jumbotron boxShadow">
+		<h2 class="text-center">No Marked Off Items!</h2>
+		</div>
+	</div>
+</div>
+<% end %>

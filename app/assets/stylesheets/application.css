@@ -75,6 +75,7 @@
 
 .no-padding-list {
   padding: 0;
+  min-width: 330px;
 }
 
 .taken-list {
