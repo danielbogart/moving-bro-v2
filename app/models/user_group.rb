@@ -8,6 +8,8 @@ class UserGroup < ActiveRecord::Base
   validates :password, :presence => true
 
 	validates :group_name, :presence => true, :uniqueness => true
+  validates :group_name, format: { with: /\A[a-zA-Z\s\d]+\z/,
+    message: "Only letters and numbers allowed in group name" }
 
   before_validation :strip_blanks
   before_create { generate_token(:token) }

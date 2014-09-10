@@ -14,14 +14,3 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-
-/*
-$(document).ready(function(){
-
-
-	$('#join_link').click(function(){ 
-		$('#join_link').html("<%= j render('shared/join_user_group') %>");
-	});
-
-});
-*/

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require turquoise_theme
  *= stub application-print
  *= require_self
  */
