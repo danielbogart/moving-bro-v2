@@ -6,11 +6,11 @@
 		<%= f.error_notification %>
 			<div class="form-inputs">
 			    <div class="form-group">
-			    	<label for="exampleInputEmail1">Enter group name</label>
+			    	<label for="Group Name">Enter group name</label>
 			    	<%= f.input :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name" %>
 			    </div>
 			    <div class="form-group">
-			    	<label for="exampleInputEmail1">Password</label>
+			    	<label for="Password">Password</label>
 			    	<%= f.input :password, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password" %>
 			    </div>
 					<%= f.button :submit, :class => "btn btn-md btn-warning" %>

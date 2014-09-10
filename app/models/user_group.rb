@@ -9,8 +9,13 @@ class UserGroup < ActiveRecord::Base
 
 	validates :group_name, :presence => true, :uniqueness => true
 
+  before_validation :strip_blanks
   before_create { generate_token(:token) }
   after_create :create_group_items
+
+  def strip_blanks
+    self.group_name = self.group_name.strip
+  end
 
 	def create_group_items
 		Item.all.each do |item|
