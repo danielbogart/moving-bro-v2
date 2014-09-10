@@ -5,7 +5,7 @@
 		<%= simple_form_for @group do |f| %>
 		<%= f.error_notification %>
 			<div class="form-inputs text-center">
-			    	<%= f.hidden_field :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name", :value => "House-"+Random.rand(1000...999999).to_s %>
+			    	<%= f.hidden_field :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name", :value => "Pad-"+Random.rand(1000...999999).to_s %>
 
 			    	<%= f.hidden_field :password, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password", :value => Random.rand(1000...999999).to_s %>
 				<div class="row">
