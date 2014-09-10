@@ -50,7 +50,7 @@
 							<span class="icon-bar"></span>
 						</button>
 						<% if user_signed_in? && current_user.user_group == nil %>
-              <%= link_to "Moving Bro", "/user_groups/", :class => "navbar-brand" %>
+              <%= link_to "Moving Bro", "/", :class => "navbar-brand" %>
             <% elsif user_signed_in? && current_user.user_group != nil %>
               <%= link_to "Moving Bro", "/user_groups/"+current_user.user_group.group_name, :class => "navbar-brand" %>
             <% else %>

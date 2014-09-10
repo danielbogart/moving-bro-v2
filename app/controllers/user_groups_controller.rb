@@ -15,10 +15,10 @@ class UserGroupsController < ApplicationController
 
 	def create
 		@group = current_user.create_user_group(group_params)
-		current_user.user_group = @group
-		current_user.save
-		if @group.valid?
-			redirect_to '/user_groups/'+@group.group_name, :notice => "Your group has been created"
+        if @group.valid?
+    		current_user.user_group = @group
+    		current_user.save		
+			redirect_to '/user_groups/'+@group.group_name.gsub(/\s/,'%20'), :notice => "Your group has been created"
 		else
 			redirect_to '/user_groups/', :error => "Error: group name may already be taken. Search, or try a new name."
 		end
