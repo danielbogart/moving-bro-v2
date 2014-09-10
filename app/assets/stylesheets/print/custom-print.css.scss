@@ -1,3 +1,7 @@
+* {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .navbar.navbar-default.navbar-top {
 	display: none;
 }
@@ -12,4 +16,29 @@
 
 .alert {
 	display: none;
+}
+
+.jumbotron {
+	display: none;
+}
+
+.btn {
+	display: none;
+}
+
+p {
+	display: none;
+}
+
+.list-group-item {
+	display: block;
+}
+
+.cat {
+	text-decoration: underline;
+	font-size: 25px;
+}
+
+input {
+	float: right;
 }
