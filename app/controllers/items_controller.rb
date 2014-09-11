@@ -3,6 +3,9 @@ class ItemsController < ApplicationController
 	def index
   		@item = Item.new
   		@items = Item.all
+  		if current_user.admin? == false
+  			redirect_to '/', :error => "That page is superuser only"
+  		end  
 	end
 
 	def create
