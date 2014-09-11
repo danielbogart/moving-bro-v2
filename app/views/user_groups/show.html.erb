@@ -2,7 +2,7 @@
 	<div id="heresWhat" class="jumbotron boxShadow">
 		<div class="row">
 		<h2>We've got you covered</h2>
-			<p>Here's what you'll probably need. Check the boxes of items you have or don't need, then either print your list or add the remaining items directly to your Amazon cart. Easy.</p><%= link_to "I need it all", @amazon_link, :class => "btn btn-sm btn-warning", :target => "_blank" %>
+			<p>Here's what you'll probably need. Check the boxes of items you have or don't need, click update to remove them, then add the remaining items directly to your Amazon cart or print your list. Easy.</p><%= link_to "I need it all", @amazon_link, :class => "btn btn-sm btn-warning", :target => "_blank" %>
 		</div>
 	</div>
 
@@ -16,9 +16,14 @@
 		<% @user_group.not_taken_user_group_items.each do |p| %>
 
 		<% if p.item.category_name == "Cleaning" %>
-			<a class="list-group-item">				
-				<%= p.item.item_name %>	
+			<a class="list-group-item">
+				<div class="needed-item">				
+					<%= p.item.item_name %>	
+					<!-- iframe for item popover
+					<iframe class="amazon_img" style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=movbro-20&marketplace=amazon&region=US&placement=B004V8ET3Q&asins=B004V8ET3Q&linkId=FPF655IFAT3M2TFG&show_border=true&link_opens_in_new_window=true"> -->
+				</iframe>
 				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right cleaning") %>
+				</div>
 			</a>
 			<% end %>
 		<% end %>
@@ -66,10 +71,13 @@
 
 </div>
 
-	<!-- JS functions to check all boxes in a category -->
-	<script type='text/javascript'>
-	    $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
-	    $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
-	    $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
-	</script>
+<!-- JS functions to check all boxes in a category -->
+<script type='text/javascript'>
+    $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
+    $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
+    $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
+    /* $('.needed-item').on("click", function(){ 
+    	$(this).children().toggleClass('show-img');
+    }); */
+</script>
 

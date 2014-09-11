@@ -83,3 +83,15 @@
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
+
+.amazon_img { 
+  position: absolute; 
+  top: -160px; 
+  left: 130px; 
+  display:none;
+  z-index: 100;
+}
+
+.show-img {
+  display: block;
+}
