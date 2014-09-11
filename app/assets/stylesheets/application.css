@@ -95,3 +95,8 @@
 .show-img {
   display: block;
 }
+
+.button-add-margin {
+  margin-top: 20px;
+}
+}
