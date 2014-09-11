@@ -1,5 +1,5 @@
 class UserGroupMailer < ActionMailer::Base
-  default from: "movingbroemail@gmail.com"
+  default from: "Moving Bro"
 
   def join_group_confirmation(group_id, user_id)
   	@group = UserGroup.find(group_id)
