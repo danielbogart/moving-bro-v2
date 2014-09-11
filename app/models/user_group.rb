@@ -19,6 +19,10 @@ class UserGroup < ActiveRecord::Base
     self.group_name = self.group_name.strip
   end
 
+  def self.per_page
+    10
+  end
+
 	def create_group_items
 		Item.all.each do |item|
 			user_group_item = self.user_group_items.build(item_id: item.id, taken: 1)

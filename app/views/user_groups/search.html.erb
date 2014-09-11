@@ -15,7 +15,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<% @user_group_results.order("created_at DESC").each do |p| %>
+				<% @paginated_results.order("created_at DESC").each do |p| %>
 					<tr>
 						<td>
 							<%= link_to p.group_name, "/user_groups/join_user_group/"+p.group_name, :class => "join_link", :id => "user_group"+p.id.to_s, remote: true, :group_name => p.group_name %>
@@ -24,8 +24,10 @@
 				<% end %>	
 					<tr>
 						<td><%= link_to "Back", "/user_groups/", :class => "pull-right" %>
+						<%= will_paginate @paginated_results, :class => "pull-left", :page_links => false %>
 						</td>
 					</tr>
+
 				</tbody>
 			</table>
 		</div>

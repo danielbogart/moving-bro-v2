@@ -74,6 +74,7 @@ class UserGroupsController < ApplicationController
 
     def search
     	@user_group_results = UserGroup.search(params[:search])
+        @paginated_results = UserGroup.search(params[:search]).paginate(:page => params[:page], )
     end
 
     #added for JS popup

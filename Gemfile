@@ -45,6 +45,10 @@ gem 'quiet_assets', group: :developement
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'bcrypt-ruby'
+
+gem 'will_paginate', '~> 3.0.5'
+# For pagination of search results
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
