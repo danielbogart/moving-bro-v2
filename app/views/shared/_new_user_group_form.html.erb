@@ -27,7 +27,7 @@
 	    $('#new_user_group').addClass('valid');
 
 	    var inputVal = $(this).val();
-	    var characterReg = /^\s*[a-zA-Z0-9,\s]+\s*$/;
+	    var characterReg = /^[\w\s]+$/;
 
 	    if (inputVal == "") {
 
