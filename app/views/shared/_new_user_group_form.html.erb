@@ -24,6 +24,8 @@
 <script>
 	$('#user_group_group_name').keyup(function() {
 	    $('span.error-keyup-2').remove();
+	    $('#new_user_group').addClass('valid');
+
 	    var inputVal = $(this).val();
 	    var characterReg = /^\s*[a-zA-Z0-9,\s]+\s*$/;
 
@@ -32,6 +34,16 @@
 	    }
 	    else if(!characterReg.test(inputVal)) {
 	        $(this).after('<span class="error error-keyup-2">No special characters allowed.</span>');
+	        $('#new_user_group').removeClass('valid');
+	        $('#new_user_group').on('submit', function(event){
+				return false;
+			});
 	    }
+
+	    $('#new_user_group').on('submit', function(event){
+	    	if ($(this).hasClass('valid')) {
+	    		$(this).submit();
+	    	}
+	    });
 	});
 </script>
