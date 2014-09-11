@@ -82,7 +82,7 @@
                     <% if current_user.admin? %> 
                       <li><%= link_to "Master List Items", "/items"  %></li>
                     <% end %>
-                    <li><%= link_to "Taken Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/" %></li>
+                    <li><%= link_to "Marked Off Items", "/user_groups/"+current_user.user_group.group_name+"/taken_items/" %></li>
                     <h4><%= current_user.user_group.group_name %> Members</h4>
                     <% current_user.user_group.users.each do |p| %>
                       <li><%= p.email %></li>
