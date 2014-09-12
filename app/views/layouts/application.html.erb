@@ -100,17 +100,21 @@
         <% else %>
         <% end %>
 
-      <% if current_page?("/") %>
-        <footer>
-          <p>&copy; Moving Bro 2014</p>
-        </footer>
-      <% end %>
-
       </div><!--/row-->
       
 
 
     </div> <!-- /container -->
+
+    <% if current_page?("/") && user_signed_in? == false %>
+      <footer class="footer-stuff">
+        <div class="container">
+          <p class="footer-text">&copy; Moving Bro 2014
+          <span class="pull-right"><%= link_to "Blog", 'http://blog.movingbro.com' %></span>
+          </p>
+        </div>
+      </footer>
+    <% end %>
 
   </body>
 </html>

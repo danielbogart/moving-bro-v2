@@ -99,3 +99,12 @@
 .button-add-margin {
   margin-top: 20px;
 }
+
+.footer-stuff {
+  background-color: #eeeeee;
+  padding: 15px 0 5px 0;
+}
+
+.footer-text {
+  color: #999999;
+}
