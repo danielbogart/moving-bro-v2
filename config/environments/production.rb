@@ -82,10 +82,10 @@ Rails.application.configure do
 
   #added via devise mailer tutorial - edit once deployed:
   #http://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
-  config.action_mailer.default_url_options = { :host => 'yoursite.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://arcane-fortress-8194.herokuapp.com/' }
 
   #following line may need to be removed
-  Rails.application.routes.default_url_options[:host] = 'yoursite.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'http://arcane-fortress-8194.herokuapp.com/'
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
