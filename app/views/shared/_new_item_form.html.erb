@@ -5,8 +5,8 @@
 		<%= simple_form_for @item do |f| %>
 		<%= f.error_notification %>
 		<div class="form-inputs">
-		    <%= f.input :item_name, :maxlength => 15 %>
-		    <%= f.input :category_name, :maxlength => 15 %>
+		    <%= f.input :item_name, :maxlength => 65 %>
+		    <%= f.input :category_name, :maxlength => 65 %>
 		    <%= f.input :amazon_affiliate_link, :maxlength => 45 %>
 		    <br>
 		    <div class="form-actions">
