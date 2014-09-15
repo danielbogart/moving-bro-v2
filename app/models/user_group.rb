@@ -46,7 +46,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def not_taken_user_group_items
-    self.user_group_items.where('taken > 0').order("created_at DESC")
+    self.user_group_items.where('taken > 0').order("created_at ASC")
   end
 
   def taken_user_group_items
