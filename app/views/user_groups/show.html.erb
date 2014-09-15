@@ -35,13 +35,104 @@
 	</div>
 </div>
 
+<!-- New Category -->
 <br>
+<div class="row row-centered">
+	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
+		<a class="list-group-item active cat">Kitchen<p class="pull-right">Got It?</p></a>
 
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+
+		<% if p.item.category_name == "Kitchen" %>
+			<a class="list-group-item">				
+				<%= p.item.item_name %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right kitchen") %>
+			</a>
+			<% end %>
+		<% end %>
+			<div class="btn-group btn-group-md pull-right">
+				<div class="btn btn-default" id="check_all_kitchen">
+				Check / Uncheck All
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- end of category -->
+<!-- New Category -->
+<br>
+<div class="row row-centered">
+	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
+		<a class="list-group-item active cat">Bathroom<p class="pull-right">Got It?</p></a>
+
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+
+		<% if p.item.category_name == "Bathroom" %>
+			<a class="list-group-item">				
+				<%= p.item.item_name %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right bathroom") %>
+			</a>
+			<% end %>
+		<% end %>
+			<div class="btn-group btn-group-md pull-right">
+				<div class="btn btn-default" id="check_all_bathroom">
+				Check / Uncheck All
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- end of category -->
+<!-- New Category -->
+<br>
+<div class="row row-centered">
+	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
+		<a class="list-group-item active cat">Bedroom<p class="pull-right">Got It?</p></a>
+
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+
+		<% if p.item.category_name == "Bedroom" %>
+			<a class="list-group-item">				
+				<%= p.item.item_name %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right bedroom") %>
+			</a>
+			<% end %>
+		<% end %>
+		<div class="btn-group btn-group-md pull-right">
+			<div class="btn btn-default" id="check_all_bedroom">
+			Check / Uncheck All
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end of category -->
+<!-- New Category -->
+<br>
+<div class="row row-centered">
+	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
+		<a class="list-group-item active cat">General Food<p class="pull-right">Got It?</p></a>
+
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+
+		<% if p.item.category_name == "General Food" %>
+			<a class="list-group-item">				
+				<%= p.item.item_name %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right general") %>
+			</a>
+			<% end %>
+		<% end %>
+		<div class="btn-group btn-group-md pull-right">
+			<div class="btn btn-default" id="check_all_general">
+			Check / Uncheck All
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end of category -->
+<!-- New Category -->
+<br>
 <div class="row row-centered">
 	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
 		<a class="list-group-item active cat">Furniture<p class="pull-right">Got It?</p></a>
 
-		<!--return user group items with item category = cleaning -->
 		<% @user_group.not_taken_user_group_items.each do |p| %>
 
 		<% if p.item.category_name == "Furniture" %>
@@ -51,13 +142,37 @@
 			</a>
 			<% end %>
 		<% end %>
-			<div class="btn-group btn-group-md pull-right">
-				<div class="btn btn-default" id="check_all_furniture">
-				Check / Uncheck All
-				</div>
+		<div class="btn-group btn-group-md pull-right">
+			<div class="btn btn-default" id="check_all_furniture">
+			Check / Uncheck All
 			</div>
 		</div>
 	</div>
+</div>
+<!-- end of category -->
+<!-- New Category -->
+<br>
+<div class="row row-centered">
+	<div class="col-lg-9 col-centered boxShadow center-block no-padding-list">
+		<a class="list-group-item active cat">Miscellaneous<p class="pull-right">Got It?</p></a>
+
+		<% @user_group.not_taken_user_group_items.each do |p| %>
+
+		<% if p.item.category_name == "Misc" %>
+			<a class="list-group-item">				
+				<%= p.item.item_name %>	
+				<%= check_box_tag("user_group_item_ids[]", p.id, false, :class => "pull-right misc") %>
+			</a>
+			<% end %>
+		<% end %>
+		<div class="btn-group btn-group-md pull-right">
+			<div class="btn btn-default" id="check_all_misc">
+			Check / Uncheck All
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end of category -->
 	<br>
 	<div class="row row-centered">
 		<div class="col-lg-9 col-centered no-padding-list">
@@ -74,6 +189,11 @@
 
 <!-- JS functions to check all boxes in a category -->
 <script type='text/javascript'>
+    $('#check_all_misc').on("click", function(){ $('input.misc:checkbox').click(); });
+    $('#check_all_general').on("click", function(){ $('input.general:checkbox').click(); });
+    $('#check_all_bedroom').on("click", function(){ $('input.bedroom:checkbox').click(); });
+    $('#check_all_bathroom').on("click", function(){ $('input.bathroom:checkbox').click(); });
+    $('#check_all_kitchen').on("click", function(){ $('input.kitchen:checkbox').click(); });
     $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
     $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
     $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
