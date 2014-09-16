@@ -46,11 +46,11 @@ class UserGroupsController < ApplicationController
         links = []
         links2 = []
         @user_group.not_taken_user_group_items.each do |p| 
-            if i <= 46 
+            if i <= 45 
                 links.push("&ASIN." + i.to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + i.to_s + "=1")
                 i+= 1
             else
-                links2.push("&ASIN." + (i-46).to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + (i-46).to_s + "=1")
+                links2.push("&ASIN." + (i-45).to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + (i-45).to_s + "=1")
                 i+= 1
             end
         end
