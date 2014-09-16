@@ -2,7 +2,7 @@
 	<div id="heresWhat" class="jumbotron boxShadow">
 		<div class="row">
 		<h2>We've got you covered</h2>
-			<p>Here's what you'll probably need. Check the boxes of items you have or don't need, click update to remove them, then add the remaining items directly to your Amazon cart or print your list. Easy.</p><%= link_to "I need it all", @amazon_link, :class => "btn btn-sm btn-warning", :target => "_blank" %>
+			<p>Here's what you'll probably need. Check the boxes of items you have or don't need, click update to remove them, then add the remaining items directly to your Amazon cart or print your list. Easy.</p><%= link_to "I need it all", '#list-action-buttons', :class => "btn btn-sm btn-warning"%>
 		</div>
 	</div>
 
@@ -174,7 +174,7 @@
 </div>
 <!-- end of category -->
 	<br>
-	<div class="row row-centered">
+	<div class="row row-centered" id="list-action-buttons">
 		<div class="col-lg-9 col-centered no-padding-list">
 			<%= submit_tag("Update Group List", :class => "btn btn-sm btn-warning") %>
 			<%= link_to "Add To Amazon Cart", @amazon_link, :class => "btn btn-sm btn-warning", :target => "_blank" %>
