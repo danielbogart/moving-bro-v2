@@ -108,3 +108,7 @@
 .footer-text {
   color: #999999;
 }
+
+#home-page-list {
+  padding: 0;
+}
