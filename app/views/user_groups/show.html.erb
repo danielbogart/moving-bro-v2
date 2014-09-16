@@ -183,18 +183,14 @@
 			<br><br>	
 		</div>
 	</div>
-
+	<div class="row row-centered" id="list-action-buttons">
+		<div class="col-lg-9 col-centered no-padding-list">
+			<p class="text-center">Need to split bills? We recommend <%= link_to "Splitwise", "https://www.splitwise.com/", :target => "_blank" %> and <%= link_to "Venmo", "https://venmo.com/", :target => "_blank" %></p>
+		</div>
+	</div>
 	<% end %>
 
 </div>
-
-<% if @user_group.not_taken_user_group_items.count <= 45 %>
-
-<script type='text/javascript'>
-	$('#amz-link-2').hide();
-</script>
-
-<% end %>
 
 <!-- JS functions to check all boxes in a category -->
 <script type='text/javascript'>
@@ -209,3 +205,11 @@
     $('#amz-link-2').tooltip('show');
 </script>
 
+<% if @user_group.not_taken_user_group_items.count <= 45 %>
+
+<script type='text/javascript'>
+	$('#amz-link-2').hide();
+    $('#amz-link-2').tooltip('hide');
+</script>
+
+<% end %>
