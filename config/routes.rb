@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
+  #is this referenced anywhere in site?
+
+  get 'home/contact'
+  #added for contact details
+  
   get 'user_groups/index'
   #must go above resources :user_groups otherwise it calls get user_groups/:id
   get 'user_groups/search' => 'user_groups#search'
