@@ -49,6 +49,12 @@ gem 'bcrypt-ruby'
 gem 'will_paginate', '~> 3.0.5'
 # For pagination of search results
 
+gem 'sidekiq'
+#Sidekiq for background jobs
+
+gem 'sinatra', '>= 1.3.0', :require => nil
+#Sidekiq requires sinatra for GUI
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

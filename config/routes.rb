@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   
+  require 'sidekiq/web'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   get 'home/index'
   get 'user_groups/index'
   #must go above resources :user_groups otherwise it calls get user_groups/:id

@@ -102,7 +102,8 @@ class UserGroupsController < ApplicationController
     	emails = params[:user_emails][:emails].split(",")
         begin
           emails.each do |e|
-            UserGroupMailer.group_invitation_email(e, token).deliver
+            #UserGroupMailer.delay.group_invitation_email(e, token) - with redis
+            UserGroupMailer.group_invitation_email(e, token).deliver 
           end
           encoded_url = URI.encode('/user_groups/'+current_user.user_group.group_name) 
           URI.parse(encoded_url)           

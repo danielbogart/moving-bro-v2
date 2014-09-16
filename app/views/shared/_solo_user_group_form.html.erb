@@ -6,7 +6,7 @@
 			<div class="form-inputs text-center">
 			    	<%= f.hidden_field :group_name, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group name", :value => "Pad "+Random.rand(1000...999999).to_s %>
 
-			    	<%= f.hidden_field :password, :required => true, :autofocus => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password", :value => Random.rand(1000...999999).to_s %>
+			    	<%= f.hidden_field :password, :required => true, :maxlength => 40, :input_html => { :class => "form-control" }, :label => false, :placeholder => "Group password", :value => Random.rand(1000...999999).to_s %>
 				<div class="row">
                 	<div class="col-md-6 text-center button-add-margin">
 						<div class="btn btn-md btn-warning" id='living-with-housemates-btn'>Living with housemates</div>
