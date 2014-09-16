@@ -178,6 +178,7 @@
 		<div class="col-lg-9 col-centered no-padding-list">
 			<%= submit_tag("Update Group List", :class => "btn btn-sm btn-warning") %>
 			<%= link_to "Add To Amazon Cart", @amazon_link, :class => "btn btn-sm btn-warning", :target => "_blank" %>
+			<%= link_to "Add Remaining To Cart", @amazon_link2, :class => "btn btn-sm btn-warning", :id => "amz-link-2", 'data-toggle' => "tooltip", 'data-placement' => "top", :title => "Due to length, your list needs to be added in two halves", :target => "_blank" %>			
 			<div class="btn btn-sm btn-warning" onclick="window.print();return false;">Print List</div>
 			<br><br>	
 		</div>
@@ -186,6 +187,14 @@
 	<% end %>
 
 </div>
+
+<% if @user_group.not_taken_user_group_items.count <= 46 %>
+
+<script type='text/javascript'>
+	$('#amz-link-2').hide();
+</script>
+
+<% end %>
 
 <!-- JS functions to check all boxes in a category -->
 <script type='text/javascript'>
@@ -197,8 +206,6 @@
     $('#check_all_cleaning').on("click", function(){ $('input.cleaning:checkbox').click(); });
     $('#check_all_furniture').on("click", function(){ $('input.furniture:checkbox').click(); });
     $('#check_all_taken').on("click", function(){ $('input.taken:checkbox').click(); });
-    /* $('.needed-item').on("click", function(){ 
-    	$(this).children().toggleClass('show-img');
-    }); */
+    $('#amz-link-2').tooltip('show');
 </script>
 

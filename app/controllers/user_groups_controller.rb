@@ -44,11 +44,18 @@ class UserGroupsController < ApplicationController
 		@user_group = UserGroup.find_by_group_name(params[:id])
         i = 1
         links = []
+        links2 = []
         @user_group.not_taken_user_group_items.each do |p| 
-            links.push("&ASIN." + i.to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + i.to_s + "=1")
-            i+= 1
+            if i <= 46 
+                links.push("&ASIN." + i.to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + i.to_s + "=1")
+                i+= 1
+            else
+                links2.push("&ASIN." + (i-46).to_s + "=" + p.item.amazon_affiliate_link + "&Quantity." + (i-46).to_s + "=1")
+                i+= 1
+            end
         end
         @amazon_link = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=movbro-20"+links.map { |x| x.to_s }.join("")
+        @amazon_link2 = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=movbro-20"+links2.map { |x| x.to_s }.join("")
     end
 
     def update_user_group_items
