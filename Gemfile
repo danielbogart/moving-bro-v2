@@ -46,17 +46,20 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bcrypt-ruby'
 
-gem 'will_paginate', '~> 3.0.5'
 # For pagination of search results
+gem 'will_paginate', '~> 3.0.5'
 
-gem 'sidekiq'
 #Sidekiq for background jobs
+gem 'sidekiq'
 
-gem 'sinatra', '>= 1.3.0', :require => nil
 #Sidekiq requires sinatra for GUI
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+
+# Use New Relic for app monitoring
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
