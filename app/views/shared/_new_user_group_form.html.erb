@@ -41,8 +41,9 @@
 	    }
 
 	    $('#new_user_group').on('submit', function(event){
-	    	if ($(this).hasClass('valid')) {
-	    		$(this).submit();
+	    	$('#new_user_group').unbind('submit');
+	    	if ($(this).hasClass('valid')) {  		
+	     		$(this).submit();
 	    	}
 	    });
 	});
