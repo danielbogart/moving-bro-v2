@@ -54,8 +54,8 @@ class UserGroupsController < ApplicationController
                 i+= 1
             end
         end
-        @amazon_link = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=movbro-20"+links.map { |x| x.to_s }.join("")
-        @amazon_link2 = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=movbro-20"+links2.map { |x| x.to_s }.join("")
+        @amazon_link = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=mvbro-20"+links.map { |x| x.to_s }.join("")
+        @amazon_link2 = "http://www.amazon.com/gp/aws/cart/add.html?AssociateTag=mvbro-20"+links2.map { |x| x.to_s }.join("")
     end
 
     def update_user_group_items
