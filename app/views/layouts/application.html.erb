@@ -62,6 +62,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Blog", 'http://blog.movingbro.com' %></li>
               <li><%= link_to("Hello, #{current_user.email}", "/") if user_signed_in? %></li>
 							<li><%= link_to("Log out", destroy_user_session_path, :method => :delete) if user_signed_in? %></li>
 							<li><%= link_to("Log in", '/users/sign_in', :method => :get) if user_signed_in? == false %></li>
